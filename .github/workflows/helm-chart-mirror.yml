@@ -225,7 +225,7 @@ jobs:
       helm_release_name: ${{ matrix.chart.helm_release_name }}
       helm_namespace: ${{ matrix.chart.helm_namespace }}
       mirror_path_prefix: ${{ matrix.chart.mirror_path_prefix }}
-      registry_repository: ${{ vars.ARTIFACTORY_CONTAINER_REPO || secrets.ARTIFACTORY_CONTAINER_REPO }}
+      registry_repository: ${{ vars.ARTIFACTORY_CONTAINER_REPO || vars.CI_REGISTRY_REPOSITORY }}
       deployment_environment: production
     secrets:
       artifactory_registry_repository: ${{ secrets.ARTIFACTORY_CONTAINER_REPO }}
