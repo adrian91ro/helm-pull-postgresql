@@ -13,5 +13,5 @@ Mirror Bitnami PostgreSQL Helm chart images to Artifactory via reusable workflow
 
 ## Workflows
 
-- `Helm Chart Mirror (master)`
+- `Helm Chart Mirror (main)`
 - `Create New Release` (runs after mirror success)
