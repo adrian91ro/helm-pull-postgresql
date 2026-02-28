@@ -1,0 +1,24 @@
+name: Create New Release
+
+on:
+  workflow_run:
+    workflows:
+      - Helm Chart Mirror (master)
+    types:
+      - completed
+    branches:
+      - master
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  create_new_release:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    uses: adrian91ro/cicd-templates/.github/workflows/reusable-create-semantic-version-release.yml@latest
+    with:
+      release_branch: master
+      source_branch: master
+    secrets:
+      release_api_token: ${{ secrets.RELEASE_API_TOKEN }}
